@@ -15,5 +15,9 @@ Yolov5l:
 
 <img height="350" src="yolov5l.jpg"/>
 
+Yolov5x:
+
+<img height="350" src="yolov5x.jpg"/>
+
 ### Yapılacaklar Listesi:
 * [ ] Yolov5s,Yolov5m, Yolov5l ve Yolov5x modellerinde Eğitim ve Test.
