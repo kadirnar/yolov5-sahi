@@ -56,12 +56,16 @@ datasets/
 
 Veri setini işlemlerini bitirdikten sonra data.yaml dosyasını oluşturmamız lazım. 
 
-``````
+```
 train: datasets/images/train # train dosya yolu
 val: datasets/images/val     # test dosya yolu
 nc: 2                        # nesne sayısı
 names: [ 'Apple', 'Orange' ] # etiket isimleri
 ```
-
+### Yolov5s Modeli Kullanarak Veri Setimizi Eğitelim
+```
+yolov5 detect --source images/  #images dosyasına test etmek resimleri atın.
+```
+10 Epoch ile eğittiğim yolov5s modelin sonuçları:
 
 
