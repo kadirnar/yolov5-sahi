@@ -68,4 +68,7 @@ yolov5 detect --source images/  #images dosyasına test etmek resimleri atın.
 ```
 10 Epoch ile eğittiğim yolov5s modelin sonuçları:
 
+<img height="250" src="/images/1.jpg"/>  <img height="250" src="/images/output1.jpg"/>
+
+
 
