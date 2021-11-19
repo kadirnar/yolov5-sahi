@@ -68,6 +68,21 @@ yolov5 detect --source images/  #images dosyasına test etmek resimleri atın.
 ```
 100 Epoch ile eğittiğim yolov5s modelin sonuçları:(Yarın 100 epoch sonuçlarını paylaşacağım.)
 
-<img height="250" src="/images/1.jpg"/>  
+<img height="250" src="/images/1.jpg"/>  <img height="250" src="/images/output1.jpg"/> 
 
+<img height="300" src="/images/2.jpg"/>  <img height="300" src="/images/output2.jpg"/> 
 
+<img height="300" src="/images/3.jpg"/>  <img height="300" src="/images/output3.jpg"/> 
+
+Problem:
+
+1. Bazı elmaları grup olarak alması.(1.resim)
+2. Acc sonucu ve tespit ettiği görsel sayısı düşük.(2.resim)
+
+Çözüm:
+
+1. Veri setlerini ve etiketleri open images sitesinden aldığımız için, etiketleme işlemi yaparken hata yapılmış. Apple logosunun olduğu simgeleri de elma olarak etiketlenmişti. Bu yüzden öncellikle veri setini düzenleyip tekrar eğitim yapmamız lazım.
+
+2. Modelimizi/veri setini büyütebiliriz veya parametre değerleri ile oynamalıyız. 
+
+3. Modelimize sahi algoritmasını ekleyebiliriz.
