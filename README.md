@@ -64,7 +64,7 @@ names: [ 'Apple', 'Orange' ] # etiket isimleri
 ```
 ### Yolov5s Modeli Kullanarak Veri Setimizi Eğitelim
 ```
-yolov5 detect --source images/  #images dosyasına test etmek resimleri atın.
+yolov5 detect --weights best.pt --source images/  #images dosyasına test etmek resimleri atın.
 ```
 100 Epoch ile eğittiğim yolov5s modelin sonuçları:(Yarın 100 epoch sonuçlarını paylaşacağım.)
 
