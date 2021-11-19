@@ -1,4 +1,4 @@
-# Yolov5+Sahi Kullanarak Kendi Nesne Tespit Uygulamasını Yap!
+# Yolov5+Sahi Kullanarak Yüksek Nesne Tespit Uygulamasını Yap!
 
 <img height="350" src="/images/torch.png"/>
 
