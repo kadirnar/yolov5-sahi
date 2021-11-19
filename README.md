@@ -92,14 +92,13 @@ Veri seti ve etiket hatalarını kesinllikle düzeltmeliyiz. Peki bunları sahi 
 Veri setini düzenleyip daha iyi bir model denesek daha iyi olur galiba :( Peki ya Sahi'yi denesek nasıl olur? 🚀 Uçuracak gibi duruyor :)
 
 Sahi Algoritmasındaki parametre değerleri ile biraz oynarak optimum değeri yakaladık.
-
+```
 result = get_sliced_prediction(
     "images/2.jpg",
     detection_model,
     slice_height = 128,
     slice_width = 128,
     overlap_height_ratio = 0.8,
-    overlap_width_ratio = 0.8
-)
-
+    overlap_width_ratio = 0.8)
+```
 <img height="350" src="/images/yolov5_sahi.png"/> 
