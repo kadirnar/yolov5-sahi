@@ -69,10 +69,7 @@ yolov5 detect --source images/  #images dosyasına test etmek resimleri atın.
 100 Epoch ile eğittiğim yolov5s modelin sonuçları:(Yarın 100 epoch sonuçlarını paylaşacağım.)
 
 <img height="250" src="/images/1.jpg"/>  <img height="250" src="/images/output1.jpg"/> 
-
-<img height="300" src="/images/2.jpg"/>  <img height="300" src="/images/output2.jpg"/> 
-
-<img height="300" src="/images/3.jpg"/>  <img height="300" src="/images/output3.jpg"/> 
+ 
 
 Problem:
 
@@ -88,7 +85,13 @@ Problem:
 3. Modelimize sahi algoritmasını ekleyebiliriz.
 
 
-Veri seti ve etiket hatalarını kesinllikle düzeltmeliyiz. Peki bunları sahi algoritması ile düzeltmek istedeydik nasıl olurdu?
+Veri seti ve etiket hatalarını kesinllikle düzeltmeliyiz. Peki bunları sahi algoritması ile düzeltmek istedeydik nasıl olurdu? Farkettiyseniz tespit ettiği elmaların değerleri biraz düşük. confidence_threshold değerini 0.5 yapsaydık nasıl sonuç verdiğine gelin bakalım.
+
+
+<img height="250" src="/images/yolov5.png"/> 
+
+<img height="250" src="/images/output1.jpg"/> 
+
 
 
 
