@@ -87,8 +87,12 @@ Problem:
 
 Veri seti ve etiket hatalarını kesinllikle düzeltmeliyiz. Peki bunları sahi algoritması ile düzeltmek istedeydik nasıl olurdu? Farkettiyseniz tespit ettiği elmaların değerleri biraz düşük. confidence_threshold değerini 0.5 yapsaydık nasıl sonuç verdiğine gelin bakalım.
 
+<img height="416" src="/images/yolov5.png"/>  
 
-<img height="200" src="/images/yolov5.png"/>  <img height="200" src="/images/yolov5_sahi.png"/> 
+Veri setini düzenleyip daha iyi bir model denesek daha iyi olur galiba :( Peki ya Sahi'yi denesek nasıl olur? 🚀 Uçuracak gibi duruyor :)
+
+
+<img height="416" src="/images/yolov5_sahi.png"/> 
 
 
 
