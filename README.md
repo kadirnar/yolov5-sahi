@@ -86,3 +86,9 @@ Problem:
 2. Modelimizi/veri setini büyütebiliriz veya parametre değerleri ile oynamalıyız. 
 
 3. Modelimize sahi algoritmasını ekleyebiliriz.
+
+
+Veri seti ve etiket hatalarını kesinllikle düzeltmeliyiz. Peki bunları sahi algoritması ile düzeltmek istedeydik nasıl olurdu?
+
+
+
