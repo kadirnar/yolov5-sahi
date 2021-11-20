@@ -1,4 +1,4 @@
-# Yolov5+Sahi Kullanarak Yüksek Nesne Tespit Uygulamasını Yap!
+# Yolov5+Sahi Kullanarak Yüksek Doğruluklu Nesne Tespit Uygulamasını Yap!
 
 <img height="350" src="/images/torch.png"/>
 
@@ -66,7 +66,7 @@ names: [ 'Apple', 'Orange' ] # etiket isimleri
 ```
 yolov5 detect --weights best.pt --source images/  #images dosyasına test etmek resimleri atın.
 ```
-100 Epoch ile eğittiğim yolov5s modelin sonuçları:(Yarın 100 epoch sonuçlarını paylaşacağım.)
+100 Epoch ile eğittiğim yolov5s modelin sonuçları:
 
 <img height="250" src="/images/1.jpg"/>  <img height="250" src="/images/output1.jpg"/> 
  
