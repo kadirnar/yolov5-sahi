@@ -111,3 +111,9 @@ Elma nesnesi için 1000+ fazla resim toplarken portakal için 500 resim toplayab
 Peki sahi kullanırsak nasıl bir sonuç alırız?
 
 <img height="350" src="/images/yolov5_Sahi_orange.png"/> 
+
+### Referanslar
+
+sahi: https://github.com/obss/sahi
+
+yolov5: https://github.com/fcakyon/yolov5-pip
