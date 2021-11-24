@@ -2,14 +2,21 @@
 <img height="350" src="/images/torch.png"/>
 
 ### Küçük Nesne Tespiti için Yolov5 + SAHİ:
-1. [Veri Setinin Topla](#veri-setinin-topla)<br/>
-2. [Veri Setini Yolo Formatına Çevir](#veri-setini-yolo-formatına-çevir)<br/>
-3. [Yolov5 için Veri Setini Düzenleme](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
-4. [Yolov5 Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
-5. [Model Test Sonuçları ve Hataları](#model-test-sonuçları-ve-hataları)<br/>
-6. [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)<br/>
-7. [Yolov5 ve Sahi Algoritması](#yolov5-ve-sahi-algoritması)<br/>
-8. [Tüm Resimleri Tek Seferde Test Edin](#tüm-resimleri-tek-seferde-test-edin)
+- [Veri Setinin Hazırlanması](#veri-setinin-topla)<br/>
+     - [Veri Setinin Topla](#veri-setinin-topla)<br/>
+     - [Veri Setini Yolo Formatına Çevir](#veri-setini-yolo-formatına-çevir)<br/>
+     - [Yolov5 için Veri Setini Düzenleme](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
+     - [Yolov5 Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
+- [Yolov5 Modeli](#model-test-sonuçları-ve-hataları)<br/>
+     - [Model Test Sonuçları ve Hataları](#model-test-sonuçları-ve-hataları)<br/>
+     - [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)<br/>
+- [Sahi Algoritması](#model-test-sonuçları-ve-hataları)<br/>
+     - [Yolov5 ve Sahi Algoritması](#yolov5-ve-sahi-algoritması)<br/>
+     - [Tüm Resimleri Tek Seferde Test Edin](#tüm-resimleri-tek-seferde-test-edin)
+
+
+### Veri Setinin Hazırlanması
+Veri seti hazırlanması bölümünde veri setinin toplanması,yolo formatına çevrilmesi ve klasörleri yolov5 formatına uygun bir şekilde düzenleme konularını anlattık.
 
 ### Veri Setinin Topla
 
