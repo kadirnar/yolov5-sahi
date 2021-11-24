@@ -1,20 +1,16 @@
 ##  Yolov5+Sahi Kullanarak Yüksek Doğruluklu Nesne Tespit Uygulamasını Yap!
-
-
 <img height="350" src="/images/torch.png"/>
 
 ### Küçük Nesne Tespiti için Yolov5 + SAHİ:
-
 - [Veri Setinin Topla](#veri-setinin-topla)<br/>
 - [Veri Setini Yolo Formatına Çevir](#veri-setini-yolo-formatına-çevir)<br/>
 - [Yolov5 için Veri Setini Düzenleme ve Yaml Dosyasını Oluşturma](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
 - [Yolov5s Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
 - [Test Sonuçları ve Hataları](#test-sonuçları-ve-hataları)<br/>
-- [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)
-- [Yolov5 ve Sahi Algoritması](#yolov5-ve-sahi-algoritması)
+- [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)<br/>
+- [Yolov5 ve Sahi Algoritması](#yolov5-ve-sahi-algoritması)<br/>
 - [Tüm Resimleri Tek Seferde Test Edin](#tüm-resimleri-tek-seferde-test-edin)
 
-Yolov5 ve Sahi Algoritması
 ### Veri Setinin Topla
 
 Hazır veri setlerini alıp yolo formatına çevirerek direk eğitim yapabilirsiniz. Fakat veriyi kendiniz toplayacaksanız direk bu siteye bakabilirsiniz.
