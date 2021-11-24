@@ -135,7 +135,7 @@ result = predict(
     export_visual = True,
     project = "demo_data/")
 ```
-
+Oluşturduğumuz demo_data klasöründe çıktılarımızı görebiliriz.
 
 ### Referanslar
 
