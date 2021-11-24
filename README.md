@@ -5,8 +5,8 @@
 - [Veri Setinin Topla](#veri-setinin-topla)<br/>
 - [Veri Setini Yolo Formatına Çevir](#veri-setini-yolo-formatına-çevir)<br/>
 - [Yolov5 için Veri Setini Düzenleme](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
-- [Yolov5s Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
-- [Test Sonuçları ve Hataları](#test-sonuçları-ve-hataları)<br/>
+- [Yolov5 Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
+- [Model Test Sonuçları ve Hataları](#model-test-sonuçları-ve-hataları)<br/>
 - [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)<br/>
 - [Yolov5 ve Sahi Algoritması](#yolov5-ve-sahi-algoritması)<br/>
 - [Tüm Resimleri Tek Seferde Test Edin](#tüm-resimleri-tek-seferde-test-edin)
@@ -78,7 +78,7 @@ yolov5 detect --weights best.pt --source images/  #images dosyasına test etmek 
 
 <img height="250" src="/images/1.jpg"/>  <img height="250" src="/images/output1.jpg"/> 
  
-### Test Sonuçları ve Hataları
+### Model Test Sonuçları ve Hataları
 Problem:
 
 1. Bazı elmaları grup olarak alması.(1.resim)
