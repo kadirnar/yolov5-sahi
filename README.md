@@ -2,18 +2,17 @@
 <img height="350" src="/images/torch.png"/>
 
 ### Küçük Nesne Tespiti için Yolov5 + SAHİ:
-- [Veri Setinin Hazırlanması](#veri-setinin-topla)<br/>
+- [Veri Setinin Hazırlanması](#veri-setinin-hazırlanması)<br/>
      - [Veri Setinin Topla](#veri-setinin-topla)<br/>
      - [Veri Setini Yolo Formatına Çevir](#veri-setini-yolo-formatına-çevir)<br/>
      - [Yolov5 için Veri Setini Düzenleme](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
      - [Yolov5 Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
-- [Yolov5 Modeli](#model-test-sonuçları-ve-hataları)<br/>
+- [Yolov5 Modeli](#yolov5-modeli)<br/>
      - [Model Test Sonuçları ve Hataları](#model-test-sonuçları-ve-hataları)<br/>
      - [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)<br/>
 - [Sahi Algoritması](#model-test-sonuçları-ve-hataları)<br/>
      - [Yolov5 ve Sahi Algoritması](#yolov5-ve-sahi-algoritması)<br/>
      - [Tüm Resimleri Tek Seferde Test Edin](#tüm-resimleri-tek-seferde-test-edin)
-
 
 ### Veri Setinin Hazırlanması
 Veri seti hazırlanması bölümünde veri setinin toplanması,yolo formatına çevrilmesi ve klasörleri yolov5 formatına uygun bir şekilde düzenleme konularını anlattık.
@@ -77,6 +76,12 @@ val: datasets/images/val     # test dosya yolu
 nc: 2                        # nesne sayısı
 names: [ 'Apple', 'Orange' ] # etiket isimleri
 ```
+
+### Yolov5 Modeli
+
+Nesne tespitinde yüksek başarı ve yüksek fps değerleri aldığımız Yolov5 modelini kullanacağız. Sahi modelinin etkisini daha iyi anlamak için biz yolo5s modeli tercih ettik. Bu bölümde model eğitimi ve test işlemlerini yapacağız.
+
+
 ### Yolov5s Modeli Kullanarak Veri Setini Eğit
 ```
 yolov5 detect --weights best.pt --source images/  #images dosyasına test etmek resimleri atın.
@@ -92,7 +97,7 @@ Problem:
 2. Acc sonucu ve tespit ettiği görsel sayısı düşük.(2.resim)
 
 
-### Modelini Düzeltmek için Çözüm Önerileri:
+### Modelini Düzeltmek için Çözüm Önerileri
 
 Çözüm:
 
