@@ -4,7 +4,7 @@
 ### Küçük Nesne Tespiti için Yolov5 + SAHİ:
 - [Veri Setinin Topla](#veri-setinin-topla)<br/>
 - [Veri Setini Yolo Formatına Çevir](#veri-setini-yolo-formatına-çevir)<br/>
-- [Yolov5 için Veri Setini Düzenleme ve Yaml Dosyasını Oluşturma](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
+- [Yolov5 için Veri Setini Düzenleme](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
 - [Yolov5s Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
 - [Test Sonuçları ve Hataları](#test-sonuçları-ve-hataları)<br/>
 - [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)<br/>
