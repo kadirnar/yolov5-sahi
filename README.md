@@ -121,10 +121,22 @@ result = get_sliced_prediction(
 ```
 
 
-
-
 ### Tüm Resimleri Tek Seferde Test Edin
-(Eklenecek.)
+```
+Yolov5DetectionModel(
+   model_path="models/best.pt",
+   confidence_threshold=0.5,
+   device="cuda",)
+
+result = predict(
+    source = "images/",
+    model_type  = "yolov5" ,
+    model_path  = "models/best.pt",  
+    export_visual = True,
+    project = "demo_data/")
+```
+
+
 ### Referanslar
 
 sahi: https://github.com/obss/sahi
