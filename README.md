@@ -6,8 +6,8 @@
      - [Veri Setinin Topla](#veri-setinin-topla)<br/>
      - [Veri Setini Yolo Formatına Çevir](#veri-setini-yolo-formatına-çevir)<br/>
      - [Yolov5 için Veri Setini Düzenleme](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
-     - [Yolov5 Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
 - [Yolov5 Modeli](#yolov5-modeli)<br/>
+     - [Yolov5 Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
      - [Model Test Sonuçları ve Hataları](#model-test-sonuçları-ve-hataları)<br/>
      - [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)<br/>
 - [Sahi Algoritması](#model-test-sonuçları-ve-hataları)<br/>
