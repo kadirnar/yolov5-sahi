@@ -137,8 +137,14 @@ result = predict(
 ```
 Oluşturduğumuz demo_data klasöründe çıktılarımızı görebiliriz.
 
+### Yapılacaklar:
+
+-  https://huggingface.co/kadirnar Sitesinde Kendi Mdelinizi Yükleyerek Test Etme.
+-  Farklı Veri Setleri Üzerinden Sahi Algoritmasını Test Etme
+-  Video Üzerinden Sahi Algoritmasını Çalıştırma
+
 ### Referanslar
 
-sahi: https://github.com/obss/sahi
+Sahi: https://github.com/obss/sahi
 
-yolov5: https://github.com/fcakyon/yolov5-pip
+Yolov5-Pip: https://github.com/fcakyon/yolov5-pip
