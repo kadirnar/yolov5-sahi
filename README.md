@@ -139,7 +139,7 @@ Oluşturduğumuz demo_data klasöründe çıktılarımızı görebiliriz.
 
 ### Yapılacaklar:
 
--  https://huggingface.co/kadirnar Sitesinde Kendi Mdelinizi Yükleyerek Test Etme.
+-  https://huggingface.co/kadirnar Sitesinde Kendi Modelinizi Yükleyerek Test Etme.
 -  Farklı Veri Setleri Üzerinden Sahi Algoritmasını Test Etme
 -  Video Üzerinden Sahi Algoritmasını Çalıştırma
 
