@@ -82,7 +82,7 @@ Modelimizin performans parametre sonuçlarını incelledikten bir resim üzerind
 ```
 yolov5 detect --weights best.pt--source 0 apple.jpg
 ```
-<img width="700" alt="teaser" src="images\yolov5.png">
+<img width="700" alt="teaser" src="images\yolo.png">
 
 Hazırladığımız yolo modelinde iki problem gözlenmektedir. 
 - Küçük nesneleri tespit edememektedir.
