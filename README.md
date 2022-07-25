@@ -1,47 +1,45 @@
-##  Yolov5+Sahi Kullanarak Yüksek Doğruluklu Nesne Tespit Uygulamasını Yap!
-<img height="350" src="/images/torch.png"/>
+<div align="center">
+<h2>
+  Yolov5 Modelini Kullanarak Özel Nesne Eğitimi ve SAHI Kullanımı
+</h2>
+<h4>
+    <img width="700" alt="teaser" src="images\logo.png">
+</h4>
+</div>
 
-### Küçük Nesne Tespiti için Yolov5 + SAHİ:
-- [Veri Setinin Hazırlanması](#veri-setinin-hazırlanması)<br/>
-     - [Veri Setinin Topla](#veri-setinin-topla)<br/>
-     - [Veri Setini Yolo Formatına Çevir](#veri-setini-yolo-formatına-çevir)<br/>
-     - [Yolov5 için Veri Setini Düzenleme](#yolov5-için-veri-setini-düzenleme-ve-yaml-dosyasını-oluşturma)<br/>
-- [Yolov5 Modeli](#yolov5-modeli)<br/>
-     - [Yolov5 Modeli Kullanarak Veri Setini Eğit](#yolov5s-modeli-kullanarak-veri-setini-eğit)<br/>
-     - [Model Test Sonuçları ve Hataları](#model-test-sonuçları-ve-hataları)<br/>
-     - [Modelini Düzeltmek için Çözüm Önerileri](#modelini-düzeltmek-için-çözüm-önerileri)<br/>
-- [Sahi Algoritması](#model-test-sonuçları-ve-hataları)<br/>
-     - [Yolov5 ve Sahi Algoritması](#yolov5-ve-sahi-algoritması)<br/>
-     - [Tüm Resimleri Tek Seferde Test Edin](#tüm-resimleri-tek-seferde-test-edin)
+Bu yazıda, en popüler YOLO mimarilerinden birisi olan Yolov5 kullanımını göreceğiz. Bu yazıda göreceğiniz konu başlıkları şunlardır:
 
-### Veri Setinin Hazırlanması
-Veri seti hazırlanması bölümünde veri setinin toplanması,yolo formatına çevrilmesi ve klasörleri yolov5 formatına uygun bir şekilde düzenleme konularını anlattık.
+- [Yolov5 için Özel Veri Seti Oluşturma]()
+- [Yolov5-Pip kullanarak Veri Setini Eğitimi]()
+- [Yolov5-Pip kullanarak Nesne Tespiti]()
+- [SAHI Kullanarak Tespit Sonucunu İyileştirme]()
+- [Sonuç]()
 
-#### Veri Setinin Topla
+### 1. Yolov5 için Özel Veri Seti Oluşturma
 
-Hazır veri setlerini alıp yolo formatına çevirerek direk eğitim yapabilirsiniz. Fakat veriyi kendiniz toplayacaksanız direk bu siteye bakabilirsiniz.
+Yolov5 modeli için veri seti oluşturmak için 2 seçeneceğimiz var. Veri setini kamera yardımıyla kendimiz oluşturabiliriz veya Kaggle ve Open Images Dataset gibi sitelerden hazırlanmış veri setlerini indirebiliriz. Bu yazıda hazır veri setlerini kullanacağız.
 
-- [Open Images Dataset](https://storage.googleapis.com/openimages/web/index.html)<br/>
-
-#### Veri Setini Yolo Formatına Çevir
-
-- [theAIGuysCode](https://github.com/theAIGuysCode)<br/>
-
-Bu github reposundaki iki komut bizim için yeterli olacaktır.
-```
-python main.py downloader --classes Apple Orange --type_csv train --limit 1000
-```
-İndirdikten sonra classes dosyasındaki gereksiz labelleri sil ve python dosyasını çalıştır.
+Open Images Dataset platformunu kullanarak veri seti indirme için OIDv4_ToolKit reposunu kullanacağız. Bu repoyu indirmek için git kütüphanesini kullanarak indirme işlemi gerçekleştireceğiz.
 
 ```
-python convert_annotations.py
+git clone https://github.com/theAIGuysCode/OIDv4_ToolKit.git
+cd OIDv4_ToolKit
+pip install -r requirements.txt
 ```
-#### Yolov5 için Veri Setini Düzenleme ve Yaml Dosyasını Oluşturma    
+İndirme ve kütüphane kurumlarını yaptıktan sonra istediğimiz veri setini Open Images Dataset sitesinden bakarak komut satırından indirme işlemini yapacağız.
 ```
-datasets/ 
+python main.py downloader --classes Apple --type_csv train --limit 1000
+```
+<img width="700" alt="teaser" src="images\data.png">
+İndirme işleminden sonra classes.txt dosyasını class isimlerini düzelttikten sonra label değerlerini yolo formatına dönüştürme işlemi yapacağız.
+```
+python convert_annotations.py 
+```	
+Başarılı şekilde indirme ve dönüştürme işlemi yaptıktan OIDv4_ToolKit/OID/Dataset/train klasörü içinde images ve labels klasörleri bulunmaktadır. Eğitim yapmak için train ve validation image ve label dosyalarına ihtiyacımız var. Bunun için yeniden indirme işlemi yapabilirsiniz veya indirilen image ve label dosyalarını train ve validation olarak iki kısıma ayırabilirsiniz.
 
+```
+dataset/ 
       images/
-    
           train
             img_000.jpg
             ...
@@ -53,7 +51,6 @@ datasets/
            img_999.jpg 
            
       labels/
-          
           train
             img_000.txt
             ...
@@ -64,87 +61,55 @@ datasets/
             ...
             img_999.txt
 ```
-Veri seti işlemlerini bitirdikten sonra data.yaml dosyasını oluşturmamız lazım. 
+Veri setini hazırladıktan sonra data.yaml dosyasını oluşturmamız gerekiyor. Bizim hazırladığımız images ve labels dosyalarını nerede olduğunu yolov5 modeline bildirmemiz gerekiyor. Data.yaml dosyasımız şu şekilde olmalıdır:
 ```
-train: datasets/images/train # train dosya yolu
-val: datasets/images/val     # test dosya yolu
-nc: 2                        # nesne sayısı
-names: [ 'Apple', 'Orange' ] # etiket isimleri
+train: dataset/images/train # train dosya yolu
+val: datasets/images/val     # validation dosya yolu
+nc: 1                       # nesne sayısı
+names: [ 'Apple' ] # etiket isimleri`
 ```
-### Yolov5 Modeli
-
-Nesne tespitinde yüksek başarı ve yüksek fps değerleri aldığımız Yolov5 modelini kullanacağız. Sahi modelinin etkisini daha iyi anlamak için biz yolo5s modeli tercih ettik. Bu bölümde model eğitimi ve test işlemlerini yapacağız.
-
-#### Yolov5s Modeli Kullanarak Veri Setini Eğit
+### 2. Yolov5-Pip kullanarak Veri Setini Eğitimi
+Eğitim yapabilmek için yolov5 kütüphanesini indirmemiz gerekiyor. Bunun için yolov5 kütüphanesinin pip versiyonunu kullanacağız.
 ```
-yolov5 detect --weights best.pt --source images/  #images dosyasına test etmek resimleri atın.
+pip install yolov5
 ```
-100 Epoch ile eğittiğim yolov5s modelin sonuçları:
-
-<img height="250" src="/images/1.jpg"/>  <img height="250" src="/images/output1.jpg"/> 
- 
-#### Model Test Sonuçları ve Hataları
-Problem:
-
-1. Bazı elmaları grup olarak alması.(1.resim)
-2. Acc sonucu ve tespit ettiği görsel sayısı düşük.(2.resim)
-
-
-#### Modelini Düzeltmek için Çözüm Önerileri
-
-Çözüm:
-
-1. Veri setlerini ve etiketleri open images sitesinden aldığımız için, etiketleme işlemi yaparken hata yapılmış. Apple logosunun olduğu simgeleri de elma olarak etiketlenmişti. Bu yüzden öncellikle veri setini düzenleyip tekrar eğitim yapmamız lazım.
-
-2. Modelimizi/veri setini büyütebiliriz veya parametre değerleri ile oynamalıyız. 
-
-3. Modelimize sahi algoritmasını ekleyebiliriz.
-
-### Yolov5 ve Sahi Algoritması
-Veri seti ve etiket hatalarını kesinllikle düzeltmeliyiz. Peki bunları sahi algoritması ile düzeltmek istedeydik nasıl olurdu? Farkettiyseniz tespit ettiği elmaların değerleri biraz düşük. confidence_threshold değerini 0.5 yapınca da arasındaki fark daha iyi anlaşılıyor.
-
-<img height="250" src="/images/yolov5.png"/>  <img height="250" src="/images/yolov5_sahi.png"/> 
-
-500 etiketli portakalda sınıfında aldığımız sonuçlar daha şaşırtıcı diyebiliriz.
-
-<img height="350" src="/images/yolov5-orange.png"/>  <img height="350" src="/images/yolov5_Sahi_orange.png"/> 
-
-Sahi Algoritmasındaki Parametre Değerleri:
+Kütüphane indirme işlemi başarılı şekilde yaptıktan train kodunu yazıyoruz.
 ```
-result = get_sliced_prediction(
-    "images/2.jpg",
-    detection_model,
-    slice_height = 128,
-    slice_width = 128,
-    overlap_height_ratio = 0.8,
-    overlap_width_ratio = 0.8)
+yolov5 train --data dataset/data.yaml --weights yolov5s.pt --batch-size 16 --img 320 --epochs 100
 ```
-
-
-### Tüm Resimleri Tek Seferde Test Edin
+### 3. Yolov5-Pip kullanarak Nesne Tespiti
+Modelimizin performans parametre sonuçlarını incelledikten bir resim üzerinden tespit işlemi yapıyoruz.
 ```
-Yolov5DetectionModel(
-   model_path="models/best.pt",
-   confidence_threshold=0.5,
-   device="cuda",)
-
-result = predict(
-    source = "images/",
-    model_type  = "yolov5" ,
-    model_path  = "models/best.pt",  
-    export_visual = True,
-    project = "demo_data/")
+yolov5 detect --weights best.pt--source 0 apple.jpg
 ```
-Oluşturduğumuz demo_data klasöründe çıktılarımızı görebiliriz.
+<img width="700" alt="teaser" src="images\yolov5.png">
 
-### Yapılacaklar:
+Hazırladığımız yolo modelinde iki problem gözlenmektedir. 
+- Küçük nesneleri tespit edememektedir.
+- Büyük kare hatası
 
--  https://huggingface.co/kadirnar Sitesinde Kendi Modelinizi Yükleyerek Test Etme.
--  Farklı Veri Setleri Üzerinden Sahi Algoritmasını Test Etme
--  Video Üzerinden Sahi Algoritmasını Çalıştırma
+Tespit sonucundaki hata oranı düşürmek için büyük modeller tercih edebiliriz. Küçük elmaları tespit etmek için ise veri setine küçük elma resimleri ekleyebiliriz. 
+### 4. SAHI Kullanarak Tespit Sonucunu İyileştirme
+Modeli optimum hale getirmek yerine SAHI kütüphanesini Yolov5 ile test edeceğiz.
+```
+!sahi predict - model_type yolov5 - model_path best.pt - source apple.png
+```
+<img width="700" alt="teaser" src="images\SAHI.png">
 
-### Referanslar
+SAHI harika bir iş çıkardı ve nerdeyse tüm nesneleri tespit etmektedir. Burada aldığımız boyut hatası tamamen Yolov5 ve veri seti ile ilgilidir. Topladığımız veri setinde toplu elma resimleri tek elma olarak etiketlendiği için böyle bir hata almaktayız. Veri setini kontrol edip manuel silme işlemi veya yolov5 detect kodlarına gidip boxes değerlerinde sınırlanma yaparak bu problemi çözebiliriz. 
 
-Sahi: https://github.com/obss/sahi
+### 5. Sonuç 
+Bu yazıda şu konuları anlattık:
+- Open Images Dataset sitesinden Veri Oluşturmayı
+- Yolov5-Pip kullanarak Veri Setini Eğitimi
+- Yolov5-Pip kullanarak Nesne Tespiti
+- SAHI Kullanarak Tespit Sonucunu İyileştirme
 
-Yolov5-Pip: https://github.com/fcakyon/yolov5-pip
+Herhangi bir adım da yaşayacağınız herhangi bir problem de bana sormaktan çekinmeyin.
+
+### Referanslar:
+- [Yolov5-Format-Datasets](https://github.com/kadirnar/yolov5-format-datasets)
+- [OIDv4_ToolKit](https://github.com/theAIGuysCode/OIDv4_ToolKit)
+- [Yolov5-Pip](https://github.com/fcakyon/yolov5-pip)
+- [SAHI](https://github.com/obss/sahi)
+
